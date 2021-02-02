@@ -18,12 +18,11 @@
 }
 
 html {
-  height: 100%;
-  width: 100%;
   background-color: #F6FAFD;
   background-size: cover;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#F6FAFD), color-stop(19.4%, #FFFFFF));
   background-image: linear-gradient(180deg, #F6FAFD 0%, #FFFFFF 19.4%);
+  background-repeat: no-repeat;
 }
 
 body {
@@ -446,7 +445,7 @@ body {
   background: var(--color-purple);
   margin-top: 150px;
   margin-bottom: 250px;
-  padding-left: 33px;
+  padding-left: 73px;
   padding-bottom: 130px;
   padding-top: 109px;
   padding-right: 93px;
@@ -468,8 +467,8 @@ body {
           box-shadow: 0px 20px 0px rgba(156, 105, 226, 0.3);
   border-radius: 20px;
   background-color: #FFFFFF;
-  width: 430px;
-  height: 220px;
+  max-width: 430px;
+  max-height: 220px;
   position: relative;
   padding: 55px 47px 35px 130px;
   margin-top: 88px;
@@ -502,12 +501,16 @@ body {
   line-height: 180%;
   color: var(--color-font);
   margin-top: 19px;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .profile-card__img {
   position: absolute;
-  top: 60px;
-  left: 70px;
+  top: 45px;
+  left: 55px;
   width: 60px;
 }
 
@@ -672,6 +675,25 @@ body {
     margin-left: 60px;
     margin-right: 60px;
   }
+  .profile-card {
+    max-width: 645px;
+    max-height: 330px;
+    padding: 80px 70px 50px 190px;
+  }
+  .profile-card__img {
+    width: 90px;
+    top: 60px;
+    left: 70px;
+  }
+  .profile-card__title {
+    font-size: 18px;
+  }
+  .profile-card__site {
+    font-size: 14px;
+  }
+  .profile-card__desc {
+    font-size: 18px;
+  }
 }
 
 @media screen and (min-width: 1040px) {
@@ -722,25 +744,6 @@ body {
   .header, .main, .footer {
     margin-left: 140px;
     margin-right: 140px;
-  }
-  .profile-card {
-    width: 645px;
-    height: 330px;
-    padding: 80px 70px 50px 190px;
-  }
-  .profile-card__img {
-    width: 90px;
-    top: 60px;
-    left: 70px;
-  }
-  .profile-card__title {
-    font-size: 18px;
-  }
-  .profile-card__site {
-    font-size: 14px;
-  }
-  .profile-card__desc {
-    font-size: 18px;
   }
   .footer__top {
     -webkit-box-orient: horizontal;
