@@ -4,6 +4,9 @@
   --color-pink:#F063B8;
   --color-title:#212353;
   --color-font:#4B5D68;
+  --color-bg-top:#000000;
+  --color-bg-bottom:#727272;
+  --color-bg-pink: #f063b826;
 }
 
 *, *::before, *::after {
@@ -18,10 +21,10 @@
 }
 
 html {
-  background-color: #F6FAFD;
+  background-color: var(--color-bg-top);
   background-size: cover;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#F6FAFD), color-stop(19.4%, #FFFFFF));
-  background-image: linear-gradient(180deg, #F6FAFD 0%, #FFFFFF 19.4%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--color-bg-top)), color-stop(19.4%, var(--color-bg-bottom)));
+  background-image: linear-gradient(180deg, var(--color-bg-top) 0%, var(--color-bg-bottom) 19.4%);
   background-repeat: no-repeat;
 }
 
@@ -81,6 +84,16 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 160%;
+}
+
+.header__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
 }
 
 .footer {
@@ -238,6 +251,7 @@ body {
   font-size: 12px;
   line-height: 180%;
   letter-spacing: 0.01em;
+  color: var(--color-font);
 }
 
 .footer__bottom {
@@ -431,7 +445,7 @@ body {
 }
 
 .background__pink {
-  background: rgba(240, 99, 184, 0.15);
+  background: var(--color-bg-pink);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -670,6 +684,61 @@ body {
   cursor: default;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-right: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--color-purple);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 @media screen and (min-width: 768px) {
   .header, .main, .footer {
     margin-left: 60px;
@@ -696,7 +765,7 @@ body {
   }
 }
 
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 1080px) {
   .dropdown {
     display: none;
   }
